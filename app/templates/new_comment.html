@@ -8,8 +8,12 @@
 
     Comments
     {% for comment in comments %}
-
-    {{comment.text}}
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-justify">
+        {{comment.text}}
+    </div>
+    <div class="col-md-2"></div>
     {% endfor %}
+    <br>
     {% endblock %}
 </div>

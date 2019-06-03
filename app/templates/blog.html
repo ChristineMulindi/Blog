@@ -34,12 +34,19 @@
                 <p>{{post.text}}</p>
                 <br>
                 <p>Author: {{post.username}}</p>
-                <button type="button" class="btn btn-primary text-white"><a
-                        href="{{url_for('main.new_comment',post_id =post.id)}}">Write a
-                        response</a></button>
-                <br>
-                <button type="button" id = "clear" class="btn btn-danger text-white"><a
-                        href="{{url_for('main.delete',id =post.id)}}">Delete</a></button>
+                <div class="row">
+                    <div class=col-md-6>
+                        <a class="text-white"
+                                href="{{url_for('main.new_comment',post_id =post.id)}}"><button type="button"
+                                    class="btn btn-primary ">Write a
+                                response</button></a>
+                    </div>
+                    <div class=col-md-6>
+                       <a class="text-white"
+                                href="{{url_for('main.delete',id =post.id)}}"><button type="button" id="clear"
+                                    class="btn btn-danger">Delete</button></a>
+                    </div>
+                </div>
             </div>
 
         </div>
