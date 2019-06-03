@@ -49,8 +49,12 @@ class Post(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
-    text = db.Column(db.String(255))
+    text = db.Column(db.String)
+    title = db.Column(db.String)
+    username = db.Column(db.String(255), index = True)
     post_id = db.Column(db.Integer)
+    category=db.Column(db.String(255))
+    posted = db.Column(db.DateTime, default=datetime.utcnow)
     user_id=db.Column(db.Integer, db.ForeignKey('users.id'))
    
     
@@ -85,6 +89,8 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post_id=db.Column(db.Integer,db.ForeignKey('posts.id'))
     comment_id = db.Column(db.Integer)
+    title = db.Column(db.String)
+    username = db.Column(db.String(255), index = True)
     text = db.Column(db.String)
     posted = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -111,5 +117,4 @@ class Quote:
         self.quote = quote
         self.author = author
         
-      
 
